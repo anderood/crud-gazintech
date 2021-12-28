@@ -1,5 +1,6 @@
 const express = require('express');
-const { uuid } =  require('uuidv4');
+const UserController =  require('./controllers/UserController');
+
 
 const routes = express.Router();
 
@@ -10,15 +11,7 @@ routes.get('/dev', (request, response)=>{
     return response.json(devs);
 });
 
-routes.post('/dev', (request, response)=>{
-    const { name, ocupation } = request.body;
-
-    const userDev = {id: uuid(), name, ocupation };
-
-    devs.push(userDev);
-
-    return response.json(userDev);
-});
+routes.post('/dev', (UserController.store));
 
 routes.put('/dev/:id', (request, response)=>{
 
