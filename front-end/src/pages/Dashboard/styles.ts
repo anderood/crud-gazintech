@@ -35,33 +35,33 @@ export const Title = styled.h1`
 `;
 
 
-// export const Form = styled.form`
-//     margin-top: 40px;
-//     max-width: 550px;
+export const Form = styled.form`
+    margin-top: 40px;
+    max-width: 550px;
     
 
-//     display: flex;
+    display: flex;
 
-//     input {
-//         flex: 1;
-//         height: 70px;
-//         padding: 0 25px;
-//         border: 0;
-//         border-radius: 5px 0 0 5px;
-//         color: #3a3a3a;
-//     }
+    input {
+        flex: 1;
+        height: 70px;
+        padding: 0 25px;
+        border: 0;
+        border-radius: 5px 0 0 5px;
+        color: #3a3a3a;
+    }
 
-//     button {
-//         width: 210px;
-//         height: 70px;
-//         background: #04d361;
-//         border-radius: 0px 5px 5px 0px;
-//         border: 0;
-//         color: #fff;
-//         font-weight: bold;
-//     }
+    button {
+        width: 210px;
+        height: 70px;
+        background: #04d361;
+        border-radius: 0px 5px 5px 0px;
+        border: 0;
+        color: #fff;
+        font-weight: bold;
+    }
 
-// `;
+`;
 
 export const ListDevs = styled.div`
     margin-top: 80px;

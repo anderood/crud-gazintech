@@ -1,18 +1,21 @@
 import React from 'react';
 
-import { EditDev } from './style'
+import { Form } from './style'
+import imgPerfil from '../../assets/perfil.svg'
 
 const Register: React.FC = () => {
     return(
-        <EditDev>
-            <img src="https://avatars.githubusercontent.com/u/47918900?v=4" alt="Imagem de Perfil" />
-            <input placeholder="Digite o Nome" />
-            <input placeholder="Digite o Hobby" />
-            <input placeholder="Escolha o Nivel" />
-
+        <Form >           
+            <img src={imgPerfil} alt="Imagem de Perfil" />
+            <div>
+                <input type="text" name="" id=""  placeholder="Nome Completo"/>
+                <input type="text" name="" id=""  placeholder="URL Imagem"/>
+                <input type="text" name="" id=""  placeholder="Hobby"/>
+                <input type="text"  placeholder="Nivel"/>
+            </div>
             <button>Salvar</button>
-
-        </EditDev>
+                
+        </Form>
     );
 }
 
