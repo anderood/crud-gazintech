@@ -1,41 +1,73 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
+export const NavBar = styled.nav`
+
+    height: 70px;
+    margin-bottom: 30px;
+    padding: 5px 0 5px 5px;
+
     font-size: 48px;
     color: #3a3a3a;
-`;
-
-
-export const Form = styled.form`
-    margin-top: 40px;
-    max-width: 700px;
 
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    input {
-        flex: 1;
-        height: 70px;
-        padding: 0 25px;
-        border: 0;
-        border-radius: 5px 0 0 5px;
-        color: #3a3a3a;
+    div {
+       
+        display: flex;
+        button {
+            margin: 0 10px 0 10px;
+            padding: 16px 16px;
+            background: #04d361;
+            border-radius: 5px 5px;
+            border: 0;
+            color: #fff;
+            font-weight: bold;
+        }
     }
-
-    button {
-        width: 210px;
-        height: 70px;
-        background: #04d361;
-        border-radius: 0px 5px 5px 0px;
-        border: 0;
-        color: #fff;
-        font-weight: bold;
-    }
-
 `;
+
+export const Title = styled.h1`
+    font-size: 36px;
+    color: #3a3a3a;
+    text-align: center;
+`;
+
+
+// export const Form = styled.form`
+//     margin-top: 40px;
+//     max-width: 550px;
+    
+
+//     display: flex;
+
+//     input {
+//         flex: 1;
+//         height: 70px;
+//         padding: 0 25px;
+//         border: 0;
+//         border-radius: 5px 0 0 5px;
+//         color: #3a3a3a;
+//     }
+
+//     button {
+//         width: 210px;
+//         height: 70px;
+//         background: #04d361;
+//         border-radius: 0px 5px 5px 0px;
+//         border: 0;
+//         color: #fff;
+//         font-weight: bold;
+//     }
+
+// `;
 
 export const ListDevs = styled.div`
     margin-top: 80px;
     max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 30px;
 
     a {
         background: #fff;

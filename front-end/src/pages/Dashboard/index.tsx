@@ -1,17 +1,24 @@
 import React from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 
-import { Title, Form, ListDevs } from './styles';
+import { Title, ListDevs, NavBar } from './styles';
 
 const Dashboard: React.FC = () => {
     return(
         <>
-            <Title>Cadastros de Devs</Title>
+            <NavBar>
+                <strong>GazinTech</strong>
+                <div>
+                    <button>Cadastrar</button>
+                    <button>Niveis</button>
+                </div>
+            </NavBar>
+            <Title>Devs Cadastrados</Title>
 
-            <Form>
+            {/* <Form>
                 <input placeholder="Pesquise Por Devs" />
                 <button type="submit">Pesquisar</button>
-            </Form>
+            </Form> */}
 
             <ListDevs>
                 <a href="">
