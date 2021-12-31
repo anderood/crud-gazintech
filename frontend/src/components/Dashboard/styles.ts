@@ -28,12 +28,6 @@ export const NavBar = styled.nav`
     }
 `;
 
-export const Title = styled.h1`
-    font-size: 36px;
-    color: #3a3a3a;
-    text-align: center;
-`;
-
 
 export const Form = styled.form`
     margin-top: 40px;
