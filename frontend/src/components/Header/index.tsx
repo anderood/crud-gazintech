@@ -2,19 +2,23 @@ import { Container, Content, NavBar } from "./styles";
 
 interface HeaderProps {
     onOpenNewRegisterModal: () => void;
+    onOpenListNivelsModal: () => void;
 }
 
-export function Header({ onOpenNewRegisterModal }: HeaderProps){
+export function Header({ onOpenNewRegisterModal, onOpenListNivelsModal }: HeaderProps){
     return(
         <Container>
             <Content>
                 <NavBar>
-                    <span>GazinTech</span>
+                    <strong>GazinTech</strong>
                     <div>
                         <button type="button" onClick={onOpenNewRegisterModal}>
                             Cadastrar
                         </button>
-                        <button type="button">Niveis</button>
+                        <button 
+                            type="button" onClick={onOpenListNivelsModal}>
+                            Niveis
+                        </button>
                     </div>
                 </NavBar>
                 

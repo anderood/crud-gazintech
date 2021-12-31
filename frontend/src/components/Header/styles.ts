@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-    background: #ccc;
+    background: #1877f2;
     height: 70px;
 `;
 
@@ -11,7 +11,7 @@ export const Content = styled.div`
 `;
 
 export const NavBar = styled.nav`
-     height: 70px;
+    height: 70px;
     margin-bottom: 30px;
     padding: 5px 0 5px 5px;
 
@@ -21,6 +21,10 @@ export const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    strong {
+        color: #fff;   
+    }
 
     div {
        
