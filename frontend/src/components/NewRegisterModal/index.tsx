@@ -21,11 +21,23 @@ export function NewRegisterModal({ isOpen, onRequestClose}: NewRegisterModalProp
                 <input 
                     placeholder="URL Imagem"
                 />
-               <select value="">
-                    <option value="">Sexo</option>
-                    <option value="B">Banana</option>
-                    <option value="C">Cranberry</option>
-               </select>
+                <div>
+                    <select value="">
+                        <option value="">Sexo</option>
+                        <option value="B">Banana</option>
+                        <option value="C">Cranberry</option>
+                    </select>
+                    <input 
+                        type="date"
+                        placeholder="Data de Nascimento"
+                    />
+
+                </div>
+                <select value="" className="selectnivel">
+                        <option value="">Nivel</option>
+                        <option value="B">Banana</option>
+                        <option value="C">Cranberry</option>
+                    </select>
                 <textarea 
                     placeholder="Atividades"
                 />

@@ -4,6 +4,7 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { ListNivels } from './components/ListNivels';
 import { NewRegisterModal } from './components/NewRegisterModal';
+import { ViewDev } from './components/ViewDev';
 import { GlobalStyle } from "./styles/global";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   const [isNewRegisterOpen, setIsNewRegisterOpen] = useState(false);
   const [isListNivelsOpen, setIsListNivelsOpen] = useState(false);
+  const [isViewDevsOpen, setIsViewDevsOpen] = useState(false);
 
 
   function handleOpenNewRegisterModal(){
@@ -29,6 +31,15 @@ function App() {
     setIsListNivelsOpen(false);
   }
 
+  function handleOpenViewDevModal(){
+    setIsViewDevsOpen(true);
+  }
+
+  function handleCloseViewDevModal(){
+    setIsViewDevsOpen(false);
+  }
+
+
 
   return (
     <>
@@ -36,7 +47,9 @@ function App() {
         onOpenNewRegisterModal={handleOpenNewRegisterModal}
         onOpenListNivelsModal={handleOpenListNivelsModal}
       />
-      <Dashboard />
+      <Dashboard 
+        onOpenViewDevsModal={handleOpenViewDevModal}
+      />
 
       <NewRegisterModal 
         isOpen={isNewRegisterOpen}
@@ -46,6 +59,11 @@ function App() {
       <ListNivels 
         isOpen={isListNivelsOpen}
         onRequestClose={handleCloseListNivelsModal}
+      />
+
+      <ViewDev 
+        isOpen={isViewDevsOpen}
+        onRequestClose={handleCloseViewDevModal}
       />
       <GlobalStyle />
     </>

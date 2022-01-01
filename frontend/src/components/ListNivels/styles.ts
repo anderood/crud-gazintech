@@ -12,7 +12,7 @@ export const Container = styled.div`
         input {
             width: 100%;
             padding: 0 1.5rem;
-            height: 4rem;
+            height: 3rem;
             border-radius: 0.25rem;
 
             border: 1px solid #d7d7d7;
@@ -29,7 +29,7 @@ export const Container = styled.div`
         button {
         /* width: 100%; */
         padding: 0 1.5rem;
-        height: 4rem;
+        height: 3rem;
         background: #33CC95;
         color: #fff;
         border-radius: 0.25rem;
