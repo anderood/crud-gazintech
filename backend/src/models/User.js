@@ -5,11 +5,16 @@ class User extends Model {
         super.init({
             name: DataTypes.STRING,
             gender: DataTypes.STRING,
-            age: DataTypes.INTEGER,
+            birthday: DataTypes.INTEGER,
             hobby: DataTypes.STRING,
+            urlimg: DataTypes.STRING,
         }, {
             sequelize
         })
+    }
+
+    static associate(models){
+        this.hasOne(models.User, {foreignKey: 'level_id'})
     }
 }
 module.exports = User;

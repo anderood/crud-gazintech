@@ -1,5 +1,6 @@
 const express = require('express');
-const UserController =  require('./controllers/UserController');
+const UserController = require('./controllers/UserController');
+const LevelController = require('./controllers/LevelController');
 
 const routes = express.Router();
 
@@ -7,8 +8,8 @@ routes.get('/dev', (UserController.index));
 
 routes.post('/dev', (UserController.store));
 
-routes.put('/dev/:id', (UserController.update));
+routes.get('/levels', (LevelController.index));
 
-routes.delete('/dev/:id', UserController.delete);
+routes.post('/levels', (LevelController.store));
 
 module.exports = routes;

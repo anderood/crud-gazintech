@@ -1,25 +1,15 @@
-const User = require("../models/User")
+const User = require("../models/User");
 
 module.exports = {
     async index(req, res){
         const result = await User.findAll();
-        return res.status(200).json(result);
+        return res.json(result);
     },
     async store(req, res){
-        const { name, gender, age, hobby} = req.body
-        const create_user = await User.create({ name, gender, age, hobby});
-        return res.status(201).json(create_user);
-    },
-    async update(req, res){
-        const { id } = req.params;
-        const { name, gender, age, hobby } = req.body;
-        const result = await User.upsert({name: name, gender: gender, age: age, hobby: hobby}, {where: {id: id}});
-        return res.status(200).json(result);
-    },
+        const { level_id, name, gender, birthday, hobby, urlimg } = req.body;
+        console.log(level_id)
 
-    async delete(req, res){
-        const { id } = req.params;
-        await User.destroy({where:{id: id}})
-        return res.status(204).send();
+        const create = await User.create({ level_id, name, gender, birthday, hobby, urlimg })
+        return res.json(create);
     }
 }
