@@ -14,7 +14,7 @@ class User extends Model {
     }
 
     static associate(models){
-        this.hasOne(models.User, {foreignKey: 'level_id'})
+        this.belongsTo(models.Level, {foreignKey: 'level_id'})
     }
 }
 module.exports = User;

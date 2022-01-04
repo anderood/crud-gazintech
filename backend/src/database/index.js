@@ -9,5 +9,6 @@ const connection = new Sequelize(dbConfig);
 
 Level.init(connection);
 User.init(connection);
-User.associate(connection.models)
+User.associate(connection.models);
+Level.associate(connection.models);
 module.exports = connection;

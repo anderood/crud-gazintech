@@ -8,5 +8,8 @@ class Level extends Model {
             sequelize
         })
     }
+    static associate(models){
+        this.hasMany(models.User, {foreignKey: 'level_id'})
+    }
 }
 module.exports = Level;
