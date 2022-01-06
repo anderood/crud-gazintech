@@ -5,15 +5,28 @@ import { Container } from './styles';
 interface ViewDevProps{
     isOpen: boolean;
     onRequestClose: () => void;
+    items:{
+        id:number;
+        name:string;
+        gender:string;
+        birthday:number;
+        hobby:string;
+        urlimg:string;
+        Level: {
+            id:number;
+            level:string;
+        }
+    }
 }
 
-export function ViewDev({ isOpen, onRequestClose }: ViewDevProps){
+export function ViewDev({ isOpen, onRequestClose, items}: ViewDevProps){
     return(
         <Modal 
             isOpen={isOpen}
             onRequestClose={onRequestClose}
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
+            ariaHideApp={false} //add para ligar o log, tratar mais tarde
         >
         <Container>
             <h2>Editar Dev</h2>
@@ -21,14 +34,16 @@ export function ViewDev({ isOpen, onRequestClose }: ViewDevProps){
                 <div className="container-header-main">
                     <input 
                         placeholder="Nome Completo"
+                        value={items.name}
                     />
                      <input 
                         type="date"
                         placeholder="Data de Nascimento"
+                        value={items.birthday}
                     />
                     
                 </div>
-                <img src="https://avatars.githubusercontent.com/u/47918900?v=4" alt="" />
+                <img src={items.urlimg} alt="" />
 
             </div>
             <div className="container-main">
@@ -47,9 +62,11 @@ export function ViewDev({ isOpen, onRequestClose }: ViewDevProps){
                
                 <input 
                     placeholder="URL Imagem"
+                    value={items.urlimg}
                 />
                 <textarea 
                     placeholder="Atividades"
+                    value={items.hobby}
                 />
             </div>
             <div className="container-footer">

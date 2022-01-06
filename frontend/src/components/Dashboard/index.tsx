@@ -2,20 +2,33 @@ import { ListDevs } from "./styles"
 import { FiChevronRight } from "react-icons/fi";
 
 interface DashboardProps{
-    onOpenViewDevsModal: () => void;
+    listdevs:{
+        id:number;
+        name:string;
+        gender:string;
+        birthday:number;
+        hobby:string;
+        urlimg:string;
+        Level: {
+          id:number;
+          level:string;
+        }
+    }
+    onOpenViewDevsModal: (id: number) => void;
+    // onOpenViewDevsModal: (id: number) => void;
 }
 
-export function Dashboard({onOpenViewDevsModal}: DashboardProps) {
+export function Dashboard({listdevs, onOpenViewDevsModal }: DashboardProps) {
+
     return(
         <>
             <ListDevs>
-                <a href="#" onClick={onOpenViewDevsModal}>
-                    <img src="https://avatars.githubusercontent.com/u/47918900?v=4" alt="Imagem de Perfil" />
+                <a href="#" onClick={() => onOpenViewDevsModal(listdevs.id)}>
+                    <img src={listdevs.urlimg} alt="Imagem de Perfil" />
                     <div>
-                        <strong>Anderson Santos</strong>
-                        <p>Programador para o Mundo ser Melhor</p>
-                        <span>Nivel: Junior </span>
-                        
+                        <strong>{listdevs.name}</strong>
+                        <p>{listdevs.hobby}</p>
+                        <span>Nivel: {listdevs.Level.level}</span>
                     </div>
                     <FiChevronRight size={20} />
                 </a>
