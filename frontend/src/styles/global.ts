@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        background: #000;
     }
 
     body {
@@ -44,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 48px;
         position: relative;
         border-radius: 0.25rem;
+        background: #000;
     }
 
 `;

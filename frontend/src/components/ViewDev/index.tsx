@@ -3,13 +3,11 @@ import Modal from 'react-modal';
 import { Container } from './styles';
 
 interface ViewDevProps{
-    isOpen: boolean;
-    onRequestClose: () => void;
-    items:{
+    items: {
         id:number;
         name:string;
         gender:string;
-        birthday:number;
+        birthday:string;
         hobby:string;
         urlimg:string;
         Level: {
@@ -17,9 +15,11 @@ interface ViewDevProps{
             level:string;
         }
     }
+    isOpen: boolean;
+    onRequestClose: () => void;
 }
 
-export function ViewDev({ isOpen, onRequestClose, items}: ViewDevProps){
+export function ViewDev({ items, isOpen, onRequestClose}: ViewDevProps){
     return(
         <Modal 
             isOpen={isOpen}
@@ -37,26 +37,24 @@ export function ViewDev({ isOpen, onRequestClose, items}: ViewDevProps){
                         value={items.name}
                     />
                      <input 
-                        type="date"
+                        type="text"
                         placeholder="Data de Nascimento"
-                        value={items.birthday}
+                        value={new Intl.DateTimeFormat('pt-BR').format(new Date(items.birthday))}
                     />
                     
                 </div>
-                <img src={items.urlimg} alt="" />
+                <img src={items.urlimg} alt="Imagem de Perfil" />
 
             </div>
             <div className="container-main">
-                <select value="">
-                    <option value="">Sexo</option>
-                    <option value="B">Banana</option>
-                    <option value="C">Cranberry</option>
-                </select>
-                <select value="">
-                    <option value="">Nivel</option>
-                    <option value="B">Banana</option>
-                    <option value="C">Cranberry</option>
-                </select>
+            <input 
+                placeholder="Nome Completo"
+                value={items.gender}
+            />
+            <input 
+                placeholder="Nome Completo"
+                value={items.Level.level}
+            />
             </div>
             <div className="container-options">
                

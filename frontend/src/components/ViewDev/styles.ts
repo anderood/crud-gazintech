@@ -47,7 +47,7 @@ export const Container = styled.form`
         display:flex;
         margin-top: 1rem;
 
-        select {
+        input {
             width: 100%;
             padding: 0 1.5rem;
             height: 3rem;

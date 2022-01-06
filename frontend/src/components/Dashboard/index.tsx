@@ -6,7 +6,7 @@ interface DashboardProps{
         id:number;
         name:string;
         gender:string;
-        birthday:number;
+        birthday:Date;
         hobby:string;
         urlimg:string;
         Level: {

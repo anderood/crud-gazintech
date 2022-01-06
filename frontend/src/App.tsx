@@ -12,7 +12,7 @@ interface DashboardProps{
     id:number;
     name:string;
     gender:string;
-    birthday:number;
+    birthday:Date;
     hobby:string;
     urlimg:string;
     Level: {
@@ -25,7 +25,7 @@ interface ViewsDevProps {
   id:number;
   name:string;
   gender:string;
-  birthday:number;
+  birthday:string;
   hobby:string;
   urlimg:string;
   Level: {
@@ -42,23 +42,22 @@ function App() {
 
 
   const [listdevs, setListdevs] = useState<DashboardProps[]>([]);
-  const [selectedId, setSelectedId] = useState(1);
-  const [modalview, setModalView] = useState<ViewsDevProps>({} as ViewsDevProps);
+  const [selectedId, setSelectedId] = useState(0);
+  const [modalview, setModalView] = useState<ViewsDevProps[]>([]);
 
   useEffect(()=>{
     api.get<DashboardProps[]>('/devs').then(response => {
-      setListdevs(response.data);
+      setListdevs([...response.data]);
     })
   }, []);
 
   useEffect(()=>{
-
-    async function loadViewDevs(){
-      const response = await api.get<ViewsDevProps>('/devs/'+selectedId);
-      const result = response.data;
-      setModalView(result);
+    async function loadListView(){
+      const result = await api.get(`/devs/${selectedId}`);
+      const resultado = result.data;
+      setModalView([...modalview, resultado]) 
     }
-    loadViewDevs();
+    loadListView()
   }, [selectedId]);
 
   function handleOpenNewRegisterModal(){
@@ -111,12 +110,14 @@ function App() {
         isOpen={isListNivelsOpen}
         onRequestClose={handleCloseListNivelsModal}
       />
-      
-      <ViewDev 
-        isOpen={isViewDevsOpen}
-        onRequestClose={handleCloseViewDevModal}
-        items={modalview}
-      />
+      {modalview.map(item =>(
+
+        <ViewDev 
+          isOpen={isViewDevsOpen}
+          onRequestClose={handleCloseViewDevModal}
+          items={item}
+        />
+      ))}
       <GlobalStyle />
     </>
   );
