@@ -7,6 +7,18 @@ module.exports = {
         const result = await User.findAll({include: [{all:true}]});
         return res.status(200).json(result);
     },
+    async teste(req, res){
+        const { id } = req.params;
+        const { level_id, name, gender, birthday, hobby, urlimg } = req.body;
+
+        const result = await User.findByPk(id);
+        if(result == null){
+            return res.status(400).json({Error: 'Usuario Nao Encontrado'})
+        }
+        return res.status(200).json(result);
+
+        
+    },
     async store(req, res){
         try {
             const { level_id, name, gender, birthday, hobby, urlimg } = req.body;

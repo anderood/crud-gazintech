@@ -5,6 +5,7 @@ const LevelController = require('./controllers/LevelController');
 const routes = express.Router();
 
 routes.get('/devs', (UserController.index));
+routes.get('/devs/:id', (UserController.teste));
 routes.post('/devs', (UserController.store));
 routes.put('/devs/:id', (UserController.update));
 routes.delete('/devs/:id', (UserController.delete));
