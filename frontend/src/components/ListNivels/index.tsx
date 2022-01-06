@@ -25,6 +25,7 @@ export function ListNivels({ isOpen, onRequestClose }: ListNivelsProps){
             onRequestClose={onRequestClose}
             overlayClassName="react-modal-overlay"
             className="react-modal-content"
+            ariaHideApp={false}
         >
             <Container>
                 <h2>Cadastrar Niveis</h2>

@@ -34,16 +34,22 @@ interface ViewsDevProps {
   }
 }
 
+interface NewRegisterProps{
+  id:number;
+  level: string;
+}
+
 function App() {
 
   const [isNewRegisterOpen, setIsNewRegisterOpen] = useState(false);
   const [isListNivelsOpen, setIsListNivelsOpen] = useState(false);
   const [isViewDevsOpen, setIsViewDevsOpen] = useState(false);
 
-
+  const [listoptions, setListoptions] = useState<NewRegisterProps[]>([]);
   const [listdevs, setListdevs] = useState<DashboardProps[]>([]);
   const [selectedId, setSelectedId] = useState(0);
   const [modalview, setModalView] = useState<ViewsDevProps[]>([]);
+  
 
   useEffect(()=>{
     api.get<DashboardProps[]>('/devs').then(response => {
@@ -60,6 +66,13 @@ function App() {
     loadListView()
   }, [selectedId]);
 
+  useEffect(()=>{
+    api.get<NewRegisterProps[]>('/levels').then(response => {
+      setListoptions(response.data)
+    })
+  },[])
+
+  
   function handleOpenNewRegisterModal(){
       setIsNewRegisterOpen(true);
   }
@@ -92,27 +105,29 @@ function App() {
         onOpenListNivelsModal={handleOpenListNivelsModal}
       />
       
-
-      {listdevs.map(user => (
+      {listdevs.map((user) => (
         <Dashboard 
           key={user.id} 
           listdevs={user}
           onOpenViewDevsModal={handleOpenViewDevModal}
         />
       ))}
-
-      <NewRegisterModal 
-        isOpen={isNewRegisterOpen}
-        onRequestClose={handleCloseNewRegisterModal}
-      />
+      {listoptions.map((item, ind, arr) => (
+        <NewRegisterModal 
+          key={item.id}
+          isOpen={isNewRegisterOpen}
+          onRequestClose={handleCloseNewRegisterModal}
+          items={arr}
+        />
+      ))}
 
       <ListNivels 
         isOpen={isListNivelsOpen}
         onRequestClose={handleCloseListNivelsModal}
       />
       {modalview.map(item =>(
-
         <ViewDev 
+          key={item.id}
           isOpen={isViewDevsOpen}
           onRequestClose={handleCloseViewDevModal}
           items={item}

@@ -61,7 +61,7 @@ export const ListDevs = styled.div`
     margin-top: 80px;
     max-width: 700px;
     margin: 0 auto;
-    padding: 30px 30px;
+    padding: 16px 16px;
 
     a {
         background: #fff;
