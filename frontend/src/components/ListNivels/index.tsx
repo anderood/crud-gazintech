@@ -1,5 +1,7 @@
 import { DataGrid, GridColumnsMenuItem } from '@mui/x-data-grid';
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
+import api from '../../services/api';
 import { Container } from './styles';
 
 interface ListNivelsProps {
@@ -7,18 +9,23 @@ interface ListNivelsProps {
     onRequestClose: () => void;
 }
 
-const columns = [
-    {field: 'id', headerName: 'ID', width: 70 },
-    {field: 'Nivel', headerName: 'Nivel', width: 70 },
-    {field: 'description', headerName: 'Descrição', width: 300 },
-]
-
-const rows = [
-    { id: 1, Nivel: 'Snow', description: 'Jon' },
-    { id: 1, Nivel: 'Snow', description: 'Jon' },
-  ];
-  
 export function ListNivels({ isOpen, onRequestClose }: ListNivelsProps){
+
+
+    const [level, setLevel ] = useState('');
+
+    async function handleRegisterLevel(event: FormEvent){
+        event.preventDefault();
+
+        const data = {
+            level: level
+        }
+        await api.post('/levels', data);
+        onRequestClose();
+
+
+    }
+
     return(
         <Modal 
             isOpen={isOpen}
@@ -27,30 +34,21 @@ export function ListNivels({ isOpen, onRequestClose }: ListNivelsProps){
             className="react-modal-content"
             ariaHideApp={false}
         >
-            <Container>
+            <Container >
                 <h2>Cadastrar Niveis</h2>
 
-                <form action="">
+                <form onSubmit={handleRegisterLevel}>
                     <input 
                         placeholder="Nivel"
+                        onChange={(event)=>{setLevel(event.target.value)}}
                     />
-                    <input 
-                        placeholder="Descrição"
-                    />
+                    
 
                     <button 
                         type="submit">
                             Cadastrar
                     </button>
                 </form>
-
-                <div style={{ height: 300, width: '100%' }}>
-                    <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        // checkboxSelection
-                    />
-                </div>
                 
             </Container>
         </Modal>

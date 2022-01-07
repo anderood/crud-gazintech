@@ -13,6 +13,7 @@ export const Container = styled.form`
         padding: 0 1.5rem;
         height: 3rem;
         border-radius: 0.25rem;
+        color: #6c6c6c;
 
         border: 1px solid #d7d7d7;
         background: #e7e9ee;
@@ -49,18 +50,28 @@ export const Container = styled.form`
         }
     }
 
-    .selectnivel {
-        width: 100%;
-        padding: 0 1.5rem;
-        height: 3rem;
-        border-radius: 0.25rem;
+    div {
+        display:flex;
+        margin-top: 1rem;
 
-        border: 1px solid #d7d7d7;
-        background: #e7e9ee;
+        select {
+            width: 100%;
+            padding: 0 1.5rem;
+            height: 3rem;
+            border-radius: 0.25rem;
 
-        font-size: 1rem;
-        color: #6c6c6c;
-        margin-top:1rem;
+            border: 1px solid #d7d7d7;
+            background: #e7e9ee;
+
+            font-size: 1rem;
+            color: #6c6c6c;
+            margin-right:4px;
+        }
+        
+        input {
+            margin-left:4px;
+            
+        }
     }
 
     textarea {
@@ -69,6 +80,7 @@ export const Container = styled.form`
         height: 8rem;
         margin-top: 1rem;
         border-radius: 0.25rem;
+        color: #6c6c6c;
 
         border: 1px solid #d7d7d7;
         background: #e7e9ee;

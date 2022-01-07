@@ -15,6 +15,7 @@ export const Container = styled.form`
         .container-header-main{
             display: flex;
             flex-direction: column;
+            
 
             input {
                 width: 100%;
@@ -44,6 +45,23 @@ export const Container = styled.form`
 
     .container-main {
 
+        display:flex;
+        margin-top: 1rem;
+
+        input {
+            width: 100%;
+            padding: 0 1.5rem;
+            height: 3rem;
+            border-radius: 0.25rem;
+
+            border: 1px solid #d7d7d7;
+            background: #e7e9ee;
+
+            font-size: 1rem;
+            color: #6c6c6c;
+            margin-right:4px;
+        }
+        
         display:flex;
         margin-top: 1rem;
 

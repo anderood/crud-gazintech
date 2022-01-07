@@ -1,6 +1,8 @@
 import { FormEvent, useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { Container } from '../NewRegisterModal/styles';
+import InputMask from 'react-input-mask';
+import api from '../../services/api';
 
 interface NewRegisterModalProps {
     items:Array<{
@@ -12,17 +14,29 @@ interface NewRegisterModalProps {
 }
 export function NewRegisterModal({items, isOpen, onRequestClose}: NewRegisterModalProps) {
 
-    const [name, setName] = useState('');
+    const [name, setName] = useState('');   
     const [urlperfil, setUrlperfil] = useState('');
-    const [genre, setGenre] = useState(0);
-    const [birthday, setBirthday] = useState(1);
+    const [gender, setGender] = useState('');
+    const [birthday, setBirthday] = useState('');
     const [hobby, setHobby] = useState('');
+    const [level, setLevel] = useState(Number);
+    const [age, setAge] = useState(Number);
 
-
-    function handleNewRegisterDev(event: FormEvent){
+    async function handleNewRegisterDev(event: FormEvent){
         event.preventDefault();
-        console.log(name, urlperfil, birthday, hobby)
-
+        
+        const dateformat = birthday.split("/").reverse().join("-");
+        const data = {
+            level_id:level,
+            name: name, 
+            gender: gender,
+            birthday: dateformat,
+            age: age,
+            hobby: hobby, 
+            urlimg: urlperfil,
+        }
+        await api.post('/devs', data);
+        onRequestClose();
     }
 
 
@@ -36,41 +50,51 @@ export function NewRegisterModal({items, isOpen, onRequestClose}: NewRegisterMod
         >
             <Container onSubmit={handleNewRegisterDev}>
                 <h2>Cadastrar Dev</h2>
-                <input 
+                <input
+                    required 
                     type="text"
                     placeholder="Nome Completo"
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                 />
-                <input 
+                <input
+                    required 
                     type="text"
                     placeholder="URL Imagem"
                     value={urlperfil}
                     onChange={(event) => setUrlperfil(event.target.value)}
                 />
                 <div>
-                    <select>
+                    <select value={gender} onChange={(event) => setGender(event.target.value)}>
                         <option value="Sexo">Sexo</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
                     </select>
-                    <input 
-                        type="number"
-                        placeholder="Data de Nascimento"
-                        value={birthday}
-                        onChange={(event) => setBirthday(Number(event.target.value))}
-                    />
-                </div>
+                    
+                <InputMask mask="99/99/9999" placeholder="99/99/9999" onChange={(event) => setBirthday(event.target.value)}/>
 
-                    <select className="selectnivel">
+                </div>
+                <div>
+
+                
+                    <select className="selectnivel"  onChange={(event)=>{setLevel(Number(event.target.value))}}>
                         {items.map(item=>(
-                           <option key={item.id} value={item.id}>{item.level}</option>
+                           <option key={item.id} value={item.id}>
+                                {item.level}
+                            </option>
                         ))}
                     </select>
+                    <input
+                    required 
+                    type="number"
+                    placeholder="Idade"
+                    value={age}
+                    onChange={(event) => setAge(Number(event.target.value))}
+                />
+                </div>
                 <textarea 
                     typeof="text"
                     placeholder="Atividades"
-                    value={hobby}
                     onChange={(event)=> setHobby(event.target.value)}
                 />
 

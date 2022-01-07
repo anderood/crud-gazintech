@@ -26,6 +26,7 @@ interface ViewsDevProps {
   name:string;
   gender:string;
   birthday:string;
+  age: string;
   hobby:string;
   urlimg:string;
   Level: {
