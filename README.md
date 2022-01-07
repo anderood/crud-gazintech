@@ -2,32 +2,45 @@
 
 
 ### API
-```
-GET /dev
-```
-Retorna todos os devs
+
+##BACKEND
+
+Na pasta backend, execute o comando yarn server para iniciar o servidor,
+que estará disponivel em: http://localhost:3333.
+
 
 ```
-GET /devs/{id}
+GET /levels
 ```
-Retorna o Dev conforme o ID
+Retorna todos os niveis cadastrados
 
 ```
-GET /dev/{id}
+POST /levels
 ```
-Retorna os dados de um desenvolvedor
+Cadastra um nivel
 
 ```
-POST/dev/{id}
+PUT /levels/id
 ```
-Adiciona um DEv
+Atualiza um Nivel
 
 ```
-PUT/dev/{id}
+DELETE /levels/id
 ```
-Atualiza os dados do Dev
-
+Delete o Nivel cadastrado
 ```
-DELETE/dev/{id}
+GET /devs
 ```
-Delete o Registro
+Retorna todos os Devs cadastrados
+```
+POST /devs
+```
+Realizar o cadastro de um Novo Dev
+```
+PUT /devs/{id}
+```
+Atualiza um Cadastro de Dev
+```
+Delete /devs/1
+```
+Delete o Dev cadastrado
